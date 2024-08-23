@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #1abc9c;
+            overflow: hidden;
+        }
+
+        ::selection {
+            background: rgba(26, 188, 156, 0.3);
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 0 20px;
+            margin: 100px auto;
+        }
+
+        .wrapper {
+            width: 100%;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .wrapper .title {
+            height: 60px;
+            background: #16a085;
+            border-radius: 5px 5px 0 0;
+            color: #fff;
+            font-size: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #16a085;
+            color: white;
+        }
+
+        table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .wrapper .back-button {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrapper .back-button a {
+            text-decoration: none;
+            color: #fff;
+            background: #16a085;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .wrapper .back-button a:hover {
+            background: #12876f;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="title">Database Results</div>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                </tr>
+                <% locals.data.forEach(user => { %>
+                    <tr>
+                        <td><%= user.Name %></td>
+                        <td><%= user.Gender %></td>
+                    </tr>
+                <% }) %>
+            </table>
+            <div class="back-button">
+                <a href="/database">Back to Database</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
