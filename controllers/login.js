@@ -1,6 +1,6 @@
 const user = require("../models/user")
-const { v4: uuidv4 } = require( "uuid" );
 const {setUser} = require("../service/auth")
+const jwt = require( "jsonwebtoken" )
 
 async function handleLoginGetRequest ( req, res )
 {
@@ -14,9 +14,8 @@ async function handleLoginPostRequest ( req, res )
         return res.status( 404 ).send( "No user found" );
     if ( requser.password === password )
     {
-        const SessionId = uuidv4();
-        setUser( SessionId, requser );
-        res.cookie( "uid", SessionId );
+        const token=setUser( requser );
+        res.cookie( "uid", token );
         return res.status( 200 ).redirect("/database");
     }
     else
